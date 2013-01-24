@@ -1,8 +1,15 @@
 require 'chefspec'
 
-describe 'cookbook-pacct-log::client' do
-  let (:chef_run) { ChefSpec::ChefRunner.new.converge 'cookbook-pacct-log::client' }
-  it 'should do something' do
-    pending 'Your recipe examples go here.'
+describe 'pacct-log::client' do
+  before do
+    log_host = [
+      { "hostname" => "localhost" }
+    ]
+
+    @chef_run = ::ChefSpec::ChefRunner.new.converge "pacct-log::client"
+    end
+
+  it 'includes default' do
+    @chef_run.should include_recipe "pacct-log::default"
   end
 end
