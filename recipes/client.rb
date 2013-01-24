@@ -2,7 +2,7 @@
 
 include_recipe "pacct-log::default"
 
-log_host = search(:node, "role:logstash" ).first
+log_host = search(:node, "role:infra-logging" ).first
 log_dest = log_host && log_host['hostname']
 dest_dir = node['hostname']
 
