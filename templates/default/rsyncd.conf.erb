@@ -7,7 +7,7 @@ pid file=/var/run/rsyncd.pid
 
 [logs]
   comment = Log archive
-  path = /var/log/hosts/
+  path = <%= node["pacct-log"]["log_dir"] %>
   use chroot = no
   lock file = /var/lock/rsyncd
   read only = no
