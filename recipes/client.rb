@@ -13,5 +13,5 @@ dest_dir = node['hostname']
 cron "push_acct" do
   hour "0"
   minute "0"
-  command "/usr/bin/rsync -aq /var/log/account/pacct %s::logs/%s" % [log_dest, dest_dir]
+  command "/usr/bin/rsync -aq /var/log/account/pacct #{log_dest}::logs/`date +\%Y`/`date +\%m`/`date +\%d`/#{dest_dir}"
 end
